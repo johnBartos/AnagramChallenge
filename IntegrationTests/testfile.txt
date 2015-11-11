@@ -1,0 +1,4 @@
+﻿bat
+cat
+tab
+act
