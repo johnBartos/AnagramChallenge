@@ -1,0 +1,9 @@
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\UnitTests.dll
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\UnitTests.pdb
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\Newtonsoft.Json.dll
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\nunit.framework.dll
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\Newtonsoft.Json.xml
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\nunit.framework.xml
+C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.dll
+C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.pdb

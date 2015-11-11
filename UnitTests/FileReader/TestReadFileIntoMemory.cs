@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnagramFileReader
+namespace UnitTests.FileReader
 {
-    public interface IAnagramFileReader
+    class TestReadFileIntoMemory
     {
-        IDictionary<string, byte> ReadFileIntoMemory(string path);
     }
 }
