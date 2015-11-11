@@ -14,7 +14,7 @@ namespace UnitTests.FileReader
         [Test]
         public void TestReadFile()
         {
-            var testFilePath = Path.Combine(Directory.GetCurrentDirectory(), "\\Code\\AnagramChallenge\\testfile.txt");
+            var testFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\FileReader\testfile.txt");
                         
             var reader = new AnagramFileReader.AnagramFileReader();
 

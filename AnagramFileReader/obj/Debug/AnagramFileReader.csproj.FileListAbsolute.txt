@@ -1,5 +1,4 @@
 C:\Code\AnagramChallenge\AnagramFileReader\bin\Debug\AnagramFileReader.dll
 C:\Code\AnagramChallenge\AnagramFileReader\bin\Debug\AnagramFileReader.pdb
-C:\Code\AnagramChallenge\AnagramFileReader\obj\Debug\AnagramFileReader.csprojResolveAssemblyReference.cache
 C:\Code\AnagramChallenge\AnagramFileReader\obj\Debug\AnagramFileReader.dll
 C:\Code\AnagramChallenge\AnagramFileReader\obj\Debug\AnagramFileReader.pdb

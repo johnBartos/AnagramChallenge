@@ -9,3 +9,4 @@ C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.dll
 C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.pdb
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramFileReader.dll
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramFileReader.pdb
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\FileReader\testfile.txt
