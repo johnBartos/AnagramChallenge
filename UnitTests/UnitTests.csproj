@@ -52,7 +52,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FileReader\testfile.txt" />
+    <ProjectReference Include="..\AnagramFileReader\AnagramFileReader.csproj">
+      <Project>{4205aada-f5c2-4a36-a23e-d744a14457d8}</Project>
+      <Name>AnagramFileReader</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
