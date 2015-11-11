@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{D3F1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramFileReader", "AnagramFileReader\AnagramFileReader.csproj", "{4205AADA-F5C2-4A36-A23E-D744A14457D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedWordMapGenerator", "WordMapGenerator\SortedWordMapGenerator.csproj", "{276AB2CB-3C56-463D-B28F-78266BC6A5E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +31,16 @@ Global
 		{4205AADA-F5C2-4A36-A23E-D744A14457D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4205AADA-F5C2-4A36-A23E-D744A14457D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4205AADA-F5C2-4A36-A23E-D744A14457D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276AB2CB-3C56-463D-B28F-78266BC6A5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276AB2CB-3C56-463D-B28F-78266BC6A5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276AB2CB-3C56-463D-B28F-78266BC6A5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276AB2CB-3C56-463D-B28F-78266BC6A5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4205AADA-F5C2-4A36-A23E-D744A14457D8} = {D3F1F968-2A23-4B69-8182-24FA8D6C497D}
+		{276AB2CB-3C56-463D-B28F-78266BC6A5E5} = {D3F1F968-2A23-4B69-8182-24FA8D6C497D}
 	EndGlobalSection
 EndGlobal

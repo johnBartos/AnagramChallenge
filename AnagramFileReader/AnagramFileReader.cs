@@ -9,21 +9,11 @@ namespace AnagramFileReader
 {
     public class AnagramFileReader : IAnagramFileReader
     {
-        public IDictionary<string, byte> ReadFileIntoMemory(string path)
+        public IList<string> ReadFileIntoMemory(string path)
         {
-            var result = new Dictionary<string, byte>();
+            var lines = File.ReadAllLines(path);
 
-            var lines = File.ReadLines(path);
-
-            foreach(var line in lines)
-            {
-                if(!result.ContainsKey(line))
-                {
-                    result.Add(line, 0);
-                }
-            }
-
-            return result;
+            return lines.ToList();
         }
     }
 }

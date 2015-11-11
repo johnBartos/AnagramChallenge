@@ -8,6 +8,6 @@ namespace AnagramFileReader
 {
     public interface IAnagramFileReader
     {
-        IDictionary<string, byte> ReadFileIntoMemory(string path);
+        IList<string> ReadFileIntoMemory(string path);
     }
 }

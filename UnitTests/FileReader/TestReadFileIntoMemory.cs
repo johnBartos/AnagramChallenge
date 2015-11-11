@@ -18,10 +18,9 @@ namespace UnitTests.FileReader
                         
             var reader = new AnagramFileReader.AnagramFileReader();
 
-            var expected = new Dictionary<string, byte> 
+            var expected = new List<string>
             {
-                {"test", 0},
-                {"file", 0}
+                "test","file"
             };
 
             var actual = reader.ReadFileIntoMemory(testFilePath);
