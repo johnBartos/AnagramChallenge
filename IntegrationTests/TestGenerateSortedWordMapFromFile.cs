@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 
 namespace IntegrationTests
 {
+    //Todo: create test file in memory/as a temp
+
     public class TestGenerateSortedWordMapFromFile
     {
         [Test]

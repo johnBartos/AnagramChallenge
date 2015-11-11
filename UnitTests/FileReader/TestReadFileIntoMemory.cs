@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 namespace UnitTests.FileReader
 {
+    //Todo: create test file in memory/as a temp
     public class TestReadFileIntoMemory
     {
         [Test]
