@@ -12,7 +12,7 @@ namespace ConsoleHost
     {
         static void Main(string[] args)
         {
-            var anagram = new Anagram("poultry outwits ants");
+            var anagram = new Anagram("poultryoutwitsants");
 
             var path = @"C:/code/anagramchallenge/wordlist";
             var fileReader = new AnagramFileReader.AnagramFileReader(new ImpossibleWordFilter(anagram));
