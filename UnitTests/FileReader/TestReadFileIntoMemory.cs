@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using AnagramFileReader;
+using AnagramFileReader.WordFilter;
 
 namespace UnitTests.FileReader
 {
@@ -17,7 +19,7 @@ namespace UnitTests.FileReader
         {
             var testFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\FileReader\testfile.txt");
                         
-            var reader = new AnagramFileReader.AnagramFileReader();
+            var reader = new AnagramFileReader.AnagramFileReader(new MockWordFilter());
 
             var expected = new string[] { "test", "file" };
 
@@ -26,6 +28,14 @@ namespace UnitTests.FileReader
             Assert.AreEqual(
                 JsonConvert.SerializeObject(expected),
                 JsonConvert.SerializeObject(actual));
+        }
+    }
+
+    internal class MockWordFilter : IWordFilter
+    {
+        public bool Pass(string word)
+        {
+            return true;
         }
     }
 }
