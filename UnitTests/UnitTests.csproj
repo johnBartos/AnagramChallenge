@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestAnagram.cs" />
     <Compile Include="FileReader\TestReadFileIntoMemory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortedWordMapGenerator\TestGenerateMap.cs" />
@@ -53,6 +54,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AnagramChallenge\AnagramChallenge.csproj">
+      <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
+      <Name>AnagramChallenge</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AnagramFileReader\AnagramFileReader.csproj">
       <Project>{4205aada-f5c2-4a36-a23e-d744a14457d8}</Project>
       <Name>AnagramFileReader</Name>
