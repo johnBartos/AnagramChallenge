@@ -10,7 +10,5 @@ C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.pdb
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramFileReader.dll
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramFileReader.pdb
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\FileReader\testfile.txt
-C:\Code\AnagramChallenge\UnitTests\bin\Debug\SortedWordMapGenerator.dll
-C:\Code\AnagramChallenge\UnitTests\bin\Debug\SortedWordMapGenerator.pdb
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramChallenge.dll
 C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramChallenge.pdb
