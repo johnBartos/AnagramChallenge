@@ -17,14 +17,23 @@ namespace AnagramChallenge
 
         public bool ContainsWord(string word)
         {
-            var wordAsChars= word.ToCharArray();
+            var wordAsChars = word.ToList();
+            var anagramCharList = _anagram.ToList();
 
-            return _anagram.IndexOfAny(wordAsChars) != -1;   
+            foreach (var wordChar in wordAsChars)
+            {
+                if(!anagramCharList.Remove(wordChar))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public IAnagram SubtractWord(string word)
         {
-            var wordAsChars = word.ToCharArray();
+            var wordAsChars = word.ToList();
             var anagramCharList = _anagram.ToList();
 
             foreach(var wordChar in wordAsChars)

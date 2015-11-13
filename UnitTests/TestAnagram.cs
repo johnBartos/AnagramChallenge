@@ -20,6 +20,24 @@ namespace UnitTests
         }
 
         [Test]
+        public void TestDoesnContainWord()
+        {
+            var anagram = new Anagram("blu");
+            var word = "blue";
+
+            Assert.IsFalse(anagram.ContainsWord(word));
+        }
+
+        [Test]
+        public void TestDoesnContainRepeatedChars()
+        {
+            var anagram = new Anagram("act");
+            var word = "aa";
+
+            Assert.IsFalse(anagram.ContainsWord(word));
+        }
+
+        [Test]
         public void TestSubtractWord()
         {
             var anagram = new Anagram("lolcat");

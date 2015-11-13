@@ -10,14 +10,15 @@ namespace AnagramChallenge
     {
         public void SolveAnagram(IAnagram anagram, IList<string> currentWords, string[] wordList, int index)
         {
-            if(index == wordList.Length - 1)
+            if (anagram.Length() == 0)
             {
+                Console.WriteLine("Found a solution: {0}", String.Join(" ", currentWords));
                 return;
             }
 
-            if(anagram.Length() == 0)
+            if(index == wordList.Length)
             {
-                Console.WriteLine("Found a solution: {0}", String.Join(" ", currentWords));
+                Console.WriteLine("Ran out of words");
                 return;
             }
 
@@ -27,13 +28,16 @@ namespace AnagramChallenge
                 
                 if(anagram.ContainsWord(currentWord))
                 {
-                    anagram.SubtractWord(currentWord);
-                    currentWords.Add(currentWord);
-                    SolveAnagram(anagram, currentWords, wordList, i);
+                    var shorterAnagram = anagram.SubtractWord(currentWord);
+
+                    var fitList = new List<string>(currentWords);
+                    fitList.Add(currentWord);
+
+                    var next = i + 1;
+
+                    SolveAnagram(shorterAnagram, fitList, wordList, next);
                 }
             }
-
-            Console.WriteLine("Reached end of list");
         }
     }
 }
