@@ -9,11 +9,11 @@ namespace AnagramFileReader
 {
     public class AnagramFileReader : IAnagramFileReader
     {
-        public IList<string> ReadFileIntoMemory(string path)
+        public string[] ReadFileIntoMemory(string path)
         {
             var lines = File.ReadAllLines(path);
 
-            return lines.ToList();
+            return lines.ToArray();
         }
     }
 }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramFileReader", "Anagra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{23E3EBD3-3853-4420-B7E7-09D55BD4EFF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "ConsoleHost\ConsoleHost.csproj", "{9474E6E8-C745-4B64-B47D-91EFECDEEA94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{23E3EBD3-3853-4420-B7E7-09D55BD4EFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23E3EBD3-3853-4420-B7E7-09D55BD4EFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23E3EBD3-3853-4420-B7E7-09D55BD4EFF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9474E6E8-C745-4B64-B47D-91EFECDEEA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9474E6E8-C745-4B64-B47D-91EFECDEEA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9474E6E8-C745-4B64-B47D-91EFECDEEA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9474E6E8-C745-4B64-B47D-91EFECDEEA94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
