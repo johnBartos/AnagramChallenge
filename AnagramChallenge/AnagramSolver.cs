@@ -8,17 +8,12 @@ namespace AnagramChallenge
 {
     public class AnagramSolver : IAnagramSolver
     {
-        public void SolveAnagram(IAnagram anagram, IList<string> currentWords, string[] wordList, int index)
+        public void SolveAnagram(IAnagram anagram, IList<string> currentWords, string[] wordList, int index, IList<IList<string>> results)
         {
             if (anagram.Length() == 0)
             {
-                Console.WriteLine("Found a solution: {0}", String.Join(" ", currentWords));
-                return;
-            }
-
-            if(index == wordList.Length)
-            {
-                Console.WriteLine("Ran out of words");
+                //Console.WriteLine("Found a solution: {0}", String.Join(" ", currentWords));
+                results.Add(currentWords);
                 return;
             }
 
@@ -35,9 +30,11 @@ namespace AnagramChallenge
 
                     var next = i + 1;
 
-                    SolveAnagram(shorterAnagram, fitList, wordList, next);
+                    SolveAnagram(shorterAnagram, fitList, wordList, next, results);
                 }
             }
+
+            //Console.WriteLine("Ran out of words");
         }
     }
 }

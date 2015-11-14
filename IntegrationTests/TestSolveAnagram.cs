@@ -20,9 +20,9 @@ namespace IntegrationTests
 
             var anagram = new Anagram("catbat");
             var solver = new AnagramSolver();
+            var results = new List<IList<string>>();
 
-
-            solver.SolveAnagram(anagram, new List<string>(), wordList.ToArray(), 0);
+            solver.SolveAnagram(anagram, new List<string>(), wordList.ToArray(), 0, results);
         }
     }
 }

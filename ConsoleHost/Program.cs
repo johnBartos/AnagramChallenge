@@ -19,8 +19,9 @@ namespace ConsoleHost
             var wordList = fileReader.ReadFileIntoMemory(path);
             
             var solver = new AnagramSolver();
+            var results = new List<IList<string>>();
 
-            solver.SolveAnagram(anagram, new List<string>(), wordList, 0);
+            solver.SolveAnagram(anagram, new List<string>(), wordList, 0, results);
 
             Console.ReadKey();
         }
