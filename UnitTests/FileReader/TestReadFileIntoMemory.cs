@@ -19,7 +19,7 @@ namespace UnitTests.FileReader
         {
             var testFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\FileReader\testfile.txt");
                         
-            var reader = new AnagramFileReader.AnagramFileReader(new MockWordFilter());
+            var reader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new MockWordFilter() });
 
             var expected = new string[] { "test", "file" };
 

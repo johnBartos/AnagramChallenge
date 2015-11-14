@@ -15,6 +15,7 @@ namespace UnitTests.WordFilter
         [TestCase("i", true)]
         [TestCase("O", true)]
         [TestCase("j", false)]
+        [TestCase("john", true)]
         public void TestFilter(string word, bool expected)
         {
             var filter = new SingleLetterWordFilter();

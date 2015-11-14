@@ -15,7 +15,7 @@ namespace ConsoleHost
             var anagram = new Anagram("poultryoutwitsants");
 
             var path = @"C:/code/anagramchallenge/wordlist";
-            var fileReader = new AnagramFileReader.AnagramFileReader(new ImpossibleWordFilter(anagram));
+            var fileReader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new ImpossibleWordFilter(anagram), new SingleLetterWordFilter() } );
             var wordList = fileReader.ReadFileIntoMemory(path);
             
             var solver = new AnagramSolver();

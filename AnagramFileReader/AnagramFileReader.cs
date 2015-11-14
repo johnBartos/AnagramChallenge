@@ -10,11 +10,11 @@ namespace AnagramFileReader
 {
     public class AnagramFileReader : IAnagramFileReader
     {
-        private IWordFilter _wordFilter;
+        private IList<IWordFilter> _wordFilters;
 
-        public AnagramFileReader(IWordFilter wordFilter)
+        public AnagramFileReader(IList<IWordFilter> wordFilters)
         {
-            _wordFilter = wordFilter;
+            _wordFilters = wordFilters;
         }
         public string[] ReadFileIntoMemory(string path)
         {
@@ -22,9 +22,9 @@ namespace AnagramFileReader
 
             var result = new List<string>();
 
-            foreach(var line in lines)
+            foreach (var line in lines)
             {
-                if(_wordFilter.Pass(line))
+                if(_wordFilters.All(x => x.Pass(line)))
                 {
                     result.Add(line);
                 }

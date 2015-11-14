@@ -8,22 +8,26 @@ namespace AnagramFileReader.WordFilter
 {
     public class SingleLetterWordFilter : IWordFilter
     {
-        private List<string> _allowedWords = new List<string> { "a", "i", "o" };
+        private IList<string> _allowedWords = new List<string> { "a", "i", "o" };
 
         public bool Pass(string word)
         {
+            var result = true;
+
             if(word.Length == 1)
             {
-                foreach (var allowedWord in _allowedWords)
-                {
-                    if (String.Equals(word, allowedWord, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                }
+                //foreach (var allowedWord in _allowedWords)
+                //{
+                //    if (String.Equals(word, allowedWord, StringComparison.OrdinalIgnoreCase))
+                //    {
+                //        return true;
+                //    }
+                //}
+
+                result = _allowedWords.Any(x => String.Equals(word, x, StringComparison.OrdinalIgnoreCase));
             }
 
-            return false;
+            return result;
         }
     }
 }
