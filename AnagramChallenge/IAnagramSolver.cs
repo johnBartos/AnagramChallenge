@@ -8,6 +8,6 @@ namespace AnagramChallenge
 {
     public interface IAnagramSolver
     {
-        void SolveAnagram(IAnagram anagram, IList<string> currentWords, string[] wordList, int index, IList<IList<string>> results);
+        IList<IList<string>> SolveAnagram(IAnagram anagram, string[] wordList, int index);
     }
 }

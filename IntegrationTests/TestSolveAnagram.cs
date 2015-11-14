@@ -10,19 +10,20 @@ namespace IntegrationTests
 {
     public class TestSolveAnagram
     {
+
         [Test]
         public void TestSolve()
         {
             var wordList = new List<string> 
             {
-                "red", "a", "tab", "act", "blue", "bat", "aa"
-            };
+                "red", "a", "tab", "act", "blue", "green", "aa", "poop", "asdjklhas", "quyeuiqw", "asldhbaskjdhaw", "bvbnvnbvn", "bat", "ajdehiqwuhidq", "rat", "alsjerhqwd"
+
+            }.ToArray();
 
             var anagram = new Anagram("catbat");
             var solver = new AnagramSolver();
-            var results = new List<IList<string>>();
 
-            solver.SolveAnagram(anagram, new List<string>(), wordList.ToArray(), 0, results);
+            var result = solver.SolveAnagram(anagram, wordList, 0);
         }
     }
 }

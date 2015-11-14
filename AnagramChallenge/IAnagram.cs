@@ -11,5 +11,6 @@ namespace AnagramChallenge
         bool ContainsWord(string word);
         IAnagram SubtractWord(string word);
         int Length();
+        string ToString();
     }
 }

@@ -8,33 +8,42 @@ namespace AnagramChallenge
 {
     public class AnagramSolver : IAnagramSolver
     {
-        public void SolveAnagram(IAnagram anagram, IList<string> currentWords, string[] wordList, int index, IList<IList<string>> results)
+        private IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
+
+        public IList<IList<string>> SolveAnagram(IAnagram anagram, string[] wordList, int index)
         {
-            if (anagram.Length() == 0)
-            {
-                //Console.WriteLine("Found a solution: {0}", String.Join(" ", currentWords));
-                results.Add(currentWords);
-                return;
-            }
+            var solutions = new List<IList<string>>();
 
             for(var i = index; i <= wordList.Length - 1; i++)
             {
+                IList<IList<string>> solution = new List<IList<string>>();
                 var currentWord = wordList[i];
-                
-                if(anagram.ContainsWord(currentWord))
+                var next = i + 1;
+                if (anagram.ContainsWord(currentWord))
                 {
                     var shorterAnagram = anagram.SubtractWord(currentWord);
-
-                    var fitList = new List<string>(currentWords);
-                    fitList.Add(currentWord);
-
-                    var next = i + 1;
-
-                    SolveAnagram(shorterAnagram, fitList, wordList, next, results);
+                    if (shorterAnagram.Length() == 0)
+                    {
+                        solution = new List<IList<string>> { new List<string> { currentWord } };
+                    }
+                    else
+                    {
+                        solution = SolveAnagram(shorterAnagram, wordList, next);
+                        foreach (var s in solution)
+                        {
+                            if (s.Count > 0)
+                            {
+                                s.Add(currentWord);
+                            }
+                        }
+                    }
                 }
+
+                solutions.AddRange(solution);
             }
 
-            //Console.WriteLine("Ran out of words");
+
+            return solutions;
         }
     }
 }

@@ -20,17 +20,20 @@ namespace AnagramFileReader
         {
             var lines = File.ReadLines(path);
 
-            var result = new List<string>();
+            var result = new Dictionary<string, byte>();
 
             foreach (var line in lines)
             {
-                if(_wordFilters.All(x => x.Pass(line)))
+                if (!result.ContainsKey(line))
                 {
-                    result.Add(line);
+                    if (_wordFilters.All(x => x.Pass(line)))
+                    {
+                        result.Add(line, 0);
+                    }
                 }
             }
 
-            return result.ToArray();
+            return result.Keys.ToArray();
         }
     }
 }
