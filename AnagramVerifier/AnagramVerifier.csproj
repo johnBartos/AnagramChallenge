@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="AnagramHashVerifier.cs" />
     <Compile Include="IAnagramVerifier.cs" />
+    <Compile Include="Permutator\IPermutator.cs" />
+    <Compile Include="Permutator\WordPermutator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnagramVerifier\TestHashVerification.cs" />
+    <Compile Include="Permutator\TestPermutateList.cs" />
     <Compile Include="TestAnagram.cs" />
     <Compile Include="FileReader\TestReadFileIntoMemory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
