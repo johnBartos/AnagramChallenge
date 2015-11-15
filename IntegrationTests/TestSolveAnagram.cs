@@ -16,14 +16,13 @@ namespace IntegrationTests
         {
             var wordList = new List<string> 
             {
-                "red", "a", "tab", "act", "blue", "green", "aa", "poop", "asdjklhas", "quyeuiqw", "asldhbaskjdhaw", "bvbnvnbvn", "bat", "ajdehiqwuhidq", "rat", "alsjerhqwd"
-
+                 "b", "see", "rat", "at", "mat", "rat", "lat", "tab", "green", "act", "a"
             }.ToArray();
 
-            var anagram = new Anagram("catbat");
+            var anagram = new Anagram("acatbat");
             var solver = new AnagramSolver();
 
-            var result = solver.SolveAnagram(anagram, wordList, 0);
+            var result = solver.SolveAnagramDynamicString(anagram, wordList, 0);
         }
     }
 }

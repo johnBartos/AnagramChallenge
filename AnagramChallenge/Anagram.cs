@@ -51,7 +51,7 @@ namespace AnagramChallenge
 
         public override string ToString()
         {
-            return _anagram.ToString();
+            return String.Concat(_anagram.OrderBy(x => x));
         }
     }
 }
