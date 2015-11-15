@@ -21,7 +21,7 @@ namespace ConsoleHost
             var solver = new AnagramSolver();
             var results = new List<IList<string>>();
 
-            var result = solver.SolveAnagramDynamicString(anagram, wordList, 0);
+            var result = solver.Solve(anagram, wordList, 0);
 
             Console.ReadKey();
         }
