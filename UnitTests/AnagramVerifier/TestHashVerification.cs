@@ -1,4 +1,5 @@
 ﻿using AnagramVerifier;
+using AnagramVerifier.Permutator;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,28 @@ namespace UnitTests.AnagramVerifier
         [Test]
         public void TestThatHashesAreEqual()
         {
-            var verifier = new AnagramHashVerifier("527bd5b5d689e2c32ae974c6229ff785");
+            var permutations = new List<string> { "john" };
+
+            var mockPermutator = new MockPermutator(permutations);
+
+            var verifier = new AnagramHashVerifier(mockPermutator, "527bd5b5d689e2c32ae974c6229ff785");
 
             Assert.IsTrue(verifier.IsASolution("john"));
+        }
+    }
+
+    internal class MockPermutator : IPermutator
+    {
+        private readonly IList<string> _sentencesToReturn;
+
+        public MockPermutator(IList<string> sentencesToReturn)
+        {
+            _sentencesToReturn = sentencesToReturn;
+        }
+
+        public IList<string> Permutate(string sentence)
+        {
+            return _sentencesToReturn;
         }
     }
 }

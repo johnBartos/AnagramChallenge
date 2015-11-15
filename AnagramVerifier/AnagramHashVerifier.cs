@@ -5,40 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using AnagramChallenge;
+using AnagramVerifier.Permutator;
 
 namespace AnagramVerifier
 {
     public class AnagramHashVerifier : IAnagramVerifier
     {
         private readonly string _solutionHash;
+        private readonly IPermutator _wordPermutator;
 
-        public AnagramHashVerifier(string solutionHash)
+        public AnagramHashVerifier(IPermutator permutator, string solutionHash)
         {
+            _wordPermutator = permutator;
             _solutionHash = solutionHash;
         }
 
-        public bool IsASolution(string anagram)
+        public bool IsASolution(string anagram, out string solution)
         {
-            using(var md5Hash = MD5.Create())
-            {
-                var hash = GetHash(md5Hash, anagram);
+            var hash = GetHash(anagram);
+            var permutations = _wordPermutator.Permutate(anagram);
 
-                return String.Equals(hash, _solutionHash, StringComparison.OrdinalIgnoreCase);
-            }
+            return permutations.Any(x => String.Equals(GetHash(x), _solutionHash, StringComparison.OrdinalIgnoreCase));
         }
 
-        private string GetHash(MD5 md5Hash, string input)
+        private string GetHash(string input)
         {
-            var data = md5Hash.ComputeHash(Encoding.ASCII.GetBytes(input));
-
-            var builder = new StringBuilder();
-
-            foreach(var stringByte in data)
+            using (var md5Hash = MD5.Create())
             {
-                builder.Append(stringByte.ToString("x2"));
-            }
+                var data = md5Hash.ComputeHash(Encoding.ASCII.GetBytes(input));
 
-            return builder.ToString();
+                var builder = new StringBuilder();
+
+                foreach (var stringByte in data)
+                {
+                    builder.Append(stringByte.ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
     }
 }

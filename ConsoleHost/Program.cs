@@ -7,6 +7,7 @@ using AnagramChallenge;
 using AnagramFileReader;
 using AnagramFileReader.WordFilter;
 using AnagramVerifier;
+using AnagramVerifier.Permutator;
 
 namespace ConsoleHost
 {
@@ -25,7 +26,7 @@ namespace ConsoleHost
 
             var result = solver.Solve(anagram, wordList, 0);
 
-            var hashVerifier = new AnagramHashVerifier("4624d200580677270a54ccff86b9610e");
+            var hashVerifier = new AnagramHashVerifier(new WordPermutator(), "4624d200580677270a54ccff86b9610e");
 
             foreach(var anagramString in result)
             {
@@ -39,3 +40,4 @@ namespace ConsoleHost
         }
     }
 }
+//pastils towy turnout

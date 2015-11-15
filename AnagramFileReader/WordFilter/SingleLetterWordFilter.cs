@@ -8,7 +8,7 @@ namespace AnagramFileReader.WordFilter
 {
     public class SingleLetterWordFilter : IWordFilter
     {
-        private IList<string> _allowedWords = new List<string> { "a", "i", "o" };
+        private IList<string> _allowedWords = new List<string> { "a", "i" };
 
         public bool Pass(string word)
         {
@@ -16,15 +16,8 @@ namespace AnagramFileReader.WordFilter
 
             if(word.Length == 1)
             {
-                //foreach (var allowedWord in _allowedWords)
-                //{
-                //    if (String.Equals(word, allowedWord, StringComparison.OrdinalIgnoreCase))
-                //    {
-                //        return true;
-                //    }
-                //}
-
-                result = _allowedWords.Any(x => String.Equals(word, x, StringComparison.OrdinalIgnoreCase));
+                return false;
+                //result = _allowedWords.Any(x => String.Equals(word, x, StringComparison.OrdinalIgnoreCase));
             }
 
             return result;

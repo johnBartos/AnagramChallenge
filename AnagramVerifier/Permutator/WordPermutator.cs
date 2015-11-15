@@ -15,7 +15,10 @@ namespace AnagramVerifier.Permutator
 
             var wordList = sentence.Split(' ');
 
-            Permutate(wordList, 0, wordList.Length - 1, results);
+            if (wordList.Length < 10)
+            {
+                Permutate(wordList, 0, wordList.Length - 1, results);
+            }
 
             return results;
         }
