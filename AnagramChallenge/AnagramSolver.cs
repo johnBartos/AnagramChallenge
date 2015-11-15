@@ -74,10 +74,16 @@ namespace AnagramChallenge
                     {
                         solution = SolveAnagramDynamicString(shorterAnagram, wordList, next);
 
+                        var newWordDictionary = new Dictionary<string, byte>();
                         var newWordList = new List<string>();
                         foreach (var s in solution)
                         {
-                            newWordList.Add(String.Concat(currentWord, " ", String.Join(" ", s)));
+                            var sortedWord = String.Concat(s.OrderBy(x => x));
+                            if (!newWordDictionary.ContainsKey(sortedWord))
+                            {
+                                newWordList.Add(String.Concat(currentWord, " ", String.Join(" ", s)));
+                                newWordDictionary.Add(sortedWord, 0);
+                            }
                         }
 
                         solution = newWordList;
