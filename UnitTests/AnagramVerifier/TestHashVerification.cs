@@ -20,7 +20,11 @@ namespace UnitTests.AnagramVerifier
 
             var verifier = new AnagramHashVerifier(mockPermutator, "527bd5b5d689e2c32ae974c6229ff785");
 
-            Assert.IsTrue(verifier.IsASolution("john"));
+            string actualResult;
+            var actual = verifier.IsASolution("john", out actualResult);
+
+            Assert.IsTrue(actual);
+            Assert.AreEqual("john", actualResult);
         }
     }
 

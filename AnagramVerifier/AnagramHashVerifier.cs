@@ -25,7 +25,9 @@ namespace AnagramVerifier
             var hash = GetHash(anagram);
             var permutations = _wordPermutator.Permutate(anagram);
 
-            return permutations.Any(x => String.Equals(GetHash(x), _solutionHash, StringComparison.OrdinalIgnoreCase));
+            solution = permutations.FirstOrDefault(x => String.Equals(GetHash(x), _solutionHash, StringComparison.OrdinalIgnoreCase));
+
+            return solution != null;
         }
 
         private string GetHash(string input)

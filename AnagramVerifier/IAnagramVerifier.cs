@@ -8,6 +8,6 @@ namespace AnagramVerifier
 {
     public interface IAnagramVerifier
     {
-        bool IsASolution(string anagram);
+        bool IsASolution(string anagram, out string solution);
     }
 }

@@ -28,11 +28,13 @@ namespace ConsoleHost
 
             var hashVerifier = new AnagramHashVerifier(new WordPermutator(), "4624d200580677270a54ccff86b9610e");
 
+            string solution;
             foreach(var anagramString in result)
             {
-                if(hashVerifier.IsASolution(anagramString))
+                if(hashVerifier.IsASolution(anagramString, out solution))
                 {
-                    Console.WriteLine("FOUND A SOLUTION!");
+                    Console.WriteLine("The solution is {0}", solution);
+                    break;
                 }
             }
 
