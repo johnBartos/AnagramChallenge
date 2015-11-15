@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AnagramChallenge;
 using AnagramFileReader;
 using AnagramFileReader.WordFilter;
+using AnagramVerifier;
+
 namespace ConsoleHost
 {
     class Program
@@ -22,6 +24,16 @@ namespace ConsoleHost
             var results = new List<IList<string>>();
 
             var result = solver.Solve(anagram, wordList, 0);
+
+            var hashVerifier = new AnagramHashVerifier("4624d200580677270a54ccff86b9610e");
+
+            foreach(var anagramString in result)
+            {
+                if(hashVerifier.IsASolution(anagramString))
+                {
+                    Console.WriteLine("FOUND A SOLUTION!");
+                }
+            }
 
             Console.ReadKey();
         }

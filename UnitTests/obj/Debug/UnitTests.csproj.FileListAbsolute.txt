@@ -12,3 +12,5 @@ C:\Code\AnagramChallenge\UnitTests\bin\Debug\nunit.framework.xml
 C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.dll
 C:\Code\AnagramChallenge\UnitTests\obj\Debug\UnitTests.pdb
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramVerifier.dll
+C:\Code\AnagramChallenge\UnitTests\bin\Debug\AnagramVerifier.pdb

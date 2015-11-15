@@ -76,6 +76,10 @@
       <Project>{4205aada-f5c2-4a36-a23e-d744a14457d8}</Project>
       <Name>AnagramFileReader</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AnagramVerifier\AnagramVerifier.csproj">
+      <Project>{884ad65b-378c-4cd9-b9cd-8dea01c5c941}</Project>
+      <Name>AnagramVerifier</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
