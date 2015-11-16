@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnagramFinder;
 using AnagramFileReader.WordFilter;
-using NUnit.Framework;
 using AnagramTypes;
+using NUnit.Framework;
 
 namespace UnitTests.WordFilter
 {

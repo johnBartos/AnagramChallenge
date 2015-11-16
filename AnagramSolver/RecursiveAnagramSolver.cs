@@ -1,12 +1,8 @@
-﻿using AnagramFileReader;
+﻿using System;
+using AnagramFileReader;
 using AnagramFinder;
 using AnagramTypes;
 using AnagramVerifier;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramSolver
 {

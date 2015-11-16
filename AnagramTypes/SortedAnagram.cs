@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnagramTypes
 {
     public class SortedAnagram : IAnagram
     {
-        private string _anagram { get; set; }
+        private string Anagram { get; set; }
 
         public SortedAnagram(string anagram)
         {
-            _anagram = anagram;
+            Anagram = anagram;
         }
 
         public int Length
         {
-            get { return _anagram.Length; }
+            get { return Anagram.Length; }
         }
 
         public bool ContainsWord(string word)
         {
             var wordAsChars = word.ToList();
-            var anagramCharList = _anagram.ToList();
+            var anagramCharList = Anagram.ToList();
 
             foreach (var wordChar in wordAsChars)
             {
@@ -39,7 +36,7 @@ namespace AnagramTypes
         public IAnagram SubtractWord(string word)
         {
             var wordAsChars = word.ToList();
-            var anagramCharList = _anagram.ToList();
+            var anagramCharList = Anagram.ToList();
 
             foreach(var wordChar in wordAsChars)
             {
@@ -52,7 +49,7 @@ namespace AnagramTypes
 
         public override string ToString()
         {
-            return String.Concat(_anagram.OrderBy(x => x));
+            return String.Concat(Anagram.OrderBy(x => x));
         }
     }
 }

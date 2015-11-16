@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnagramTypes;
+﻿using AnagramTypes;
 
 namespace AnagramFileReader.WordFilter
 {
     public class ImpossibleWordFilter : IWordFilter
     {
-        private IAnagram _anagram;
+        private readonly IAnagram _anagram;
 
         public ImpossibleWordFilter(IAnagram anagram)
         {

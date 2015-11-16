@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AnagramTypes;
 
 namespace AnagramFinder
 {
     public class RecursiveAnagramFinder : IAnagramFinder
     {
-        private IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
+        private readonly IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
 
         public IList<string> Solve(IAnagram anagram, string[] wordList, int index, int maxWords)
         {
