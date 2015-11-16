@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,15 +17,16 @@ namespace ConsoleHost
     class Program
     {
         private static string AnagramToSolve = "poultry outwits ants";
-        private static string Path = @"C:/code/anagramchallenge/wordlist";
         private static string SolutionHash = "4624d200580677270a54ccff86b9610e";
 
         static void Main(string[] args)
         {
+            var path = Path.Combine(Directory.GetCurrentDirectory() + @"\wordlist");
+
             var anagram = new SortedAnagram(AnagramToSolve.Replace(" ", String.Empty));
             var maxNumWords = AnagramToSolve.Count(x => x == ' ') + 1;
 
-            var fileReader = new NewlineDelimitedFileReader(Path, new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
+            var fileReader = new NewlineDelimitedFileReader(path, new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
             var finder = new RecursiveAnagramFinder();
             var verifier = new AnagramHashVerifier(new WordPermutator(), SolutionHash);
 
