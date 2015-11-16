@@ -13,20 +13,24 @@ namespace ConsoleHost
 {
     class Program
     {
+        private static string AnagramToSolve = "poultry outwits ants";
+        private static string Path = @"C:/code/anagramchallenge/wordlist";
+        private static string SolutionHash = "4624d200580677270a54ccff86b9610e";
+
         static void Main(string[] args)
         {
-            var anagram = new Anagram("poultryoutwitsants");
+            var startTime = DateTime.Now;
 
-            var path = @"C:/code/anagramchallenge/wordlist";
-            var fileReader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new ImpossibleWordFilter(anagram), new SingleLetterWordFilter() } );
-            var wordList = fileReader.ReadFileIntoMemory(path);
+            var anagram = new Anagram(AnagramToSolve.Replace(" ", String.Empty));
+            var maxNumWords = AnagramToSolve.Count(x => x == ' ') + 1;
+
+            var fileReader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
+            var wordList = fileReader.ReadFileIntoMemory(Path);
             
             var solver = new AnagramSolver();
-            var results = new List<IList<string>>();
+            var result = solver.SolveMaxWords(anagram, wordList, 0, maxNumWords);
 
-            var result = solver.Solve(anagram, wordList, 0);
-
-            var hashVerifier = new AnagramHashVerifier(new WordPermutator(), "4624d200580677270a54ccff86b9610e");
+            var hashVerifier = new AnagramHashVerifier(new WordPermutator(), SolutionHash);
 
             string solution;
             foreach(var anagramString in result)
@@ -34,6 +38,7 @@ namespace ConsoleHost
                 if(hashVerifier.IsASolution(anagramString, out solution))
                 {
                     Console.WriteLine("The solution is {0}", solution);
+                    Console.WriteLine("It took {0} to find the solution", DateTime.Now - startTime);
                     break;
                 }
             }
@@ -42,4 +47,3 @@ namespace ConsoleHost
         }
     }
 }
-//pastils towy turnout

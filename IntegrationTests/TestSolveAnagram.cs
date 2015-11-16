@@ -22,7 +22,7 @@ namespace IntegrationTests
             var anagram = new Anagram("acatbat");
             var solver = new AnagramSolver();
 
-            var result = solver.Solve(anagram, wordList, 0);
+            var result = solver.SolveMaxWords(anagram, wordList, 0, 3);
         }
     }
 }
