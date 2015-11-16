@@ -47,11 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnagramChallenge\AnagramFinder.csproj">
-      <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
-      <Name>AnagramFinder</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Anagram\AnagramTypes.csproj">
+    <ProjectReference Include="..\AnagramTypes\AnagramTypes.csproj">
       <Project>{1c62e156-9975-4826-b3a0-fbf85e4275f5}</Project>
       <Name>AnagramTypes</Name>
     </ProjectReference>

@@ -1,4 +1,0 @@
-C:\Code\AnagramChallenge\AnagramChallenge\bin\Debug\AnagramChallenge.dll
-C:\Code\AnagramChallenge\AnagramChallenge\bin\Debug\AnagramChallenge.pdb
-C:\Code\AnagramChallenge\AnagramChallenge\obj\Debug\AnagramChallenge.dll
-C:\Code\AnagramChallenge\AnagramChallenge\obj\Debug\AnagramChallenge.pdb
