@@ -23,7 +23,7 @@ namespace IntegrationTests
             var solver = new RecursiveAnagramFinder();
 
             var expected = new List<string> { "tab act a" };
-            var actual = solver.SolveMaxWords(anagram, wordList, 0, 3);
+            var actual = solver.Solve(anagram, wordList, 0, 3);
 
             CollectionAssert.AreEqual(expected, actual);
         }

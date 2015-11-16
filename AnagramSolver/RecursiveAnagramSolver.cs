@@ -26,7 +26,7 @@ namespace AnagramSolver
         public string Solve(IAnagram anagram, int maxNumberWords)
         {
             var wordList = _fileReader.ReadFileIntoMemory();
-            var result = _finder.SolveMaxWords(anagram, wordList, 0, maxNumberWords);
+            var result = _finder.Solve(anagram, wordList, 0, maxNumberWords);
 
             string solution = String.Empty;
             foreach (var anagramString in result)
