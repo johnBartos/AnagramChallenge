@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AnagramChallenge;
 using AnagramFileReader;
 using AnagramFileReader.WordFilter;
 using AnagramVerifier;
 using AnagramVerifier.Permutator;
+using AnagramFinder;
+using AnagramTypes;
+using AnagramSolver;
 
 namespace ConsoleHost
 {
@@ -19,29 +21,21 @@ namespace ConsoleHost
 
         static void Main(string[] args)
         {
-            var startTime = DateTime.Now;
-
-            var anagram = new Anagram(AnagramToSolve.Replace(" ", String.Empty));
+            var anagram = new SortedAnagram(AnagramToSolve.Replace(" ", String.Empty));
             var maxNumWords = AnagramToSolve.Count(x => x == ' ') + 1;
 
-            var fileReader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
-            var wordList = fileReader.ReadFileIntoMemory(Path);
-            
-            var solver = new AnagramSolver();
-            var result = solver.SolveMaxWords(anagram, wordList, 0, maxNumWords);
+            var fileReader = new NewlineDelimitedFileReader(Path, new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
+            var finder = new RecursiveAnagramFinder();
+            var verifier = new AnagramHashVerifier(new WordPermutator(), SolutionHash);
 
-            var hashVerifier = new AnagramHashVerifier(new WordPermutator(), SolutionHash);
+            var solver = new RecursiveAnagramSolver(fileReader, finder, verifier);
 
-            string solution;
-            foreach(var anagramString in result)
-            {
-                if(hashVerifier.IsASolution(anagramString, out solution))
-                {
-                    Console.WriteLine("The solution is {0}", solution);
-                    Console.WriteLine("It took {0} to find the solution", DateTime.Now - startTime);
-                    break;
-                }
-            }
+            var startTime = DateTime.Now;
+
+            var solution = solver.Solve(anagram, maxNumWords);
+
+            Console.WriteLine("The solution is {0}", solution);
+            Console.WriteLine("It took {0} to find the solution", DateTime.Now - startTime);
 
             Console.ReadKey();
         }

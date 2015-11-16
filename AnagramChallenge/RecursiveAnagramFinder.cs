@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AnagramTypes;
 
-namespace AnagramChallenge
+namespace AnagramFinder
 {
-    public class AnagramSolver : IAnagramSolver
+    public class RecursiveAnagramFinder : IAnagramFinder
     {
         private IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
 
@@ -30,7 +31,7 @@ namespace AnagramChallenge
                 {
                     var shorterAnagram = anagram.SubtractWord(currentWord);
 
-                    if (shorterAnagram.Length() == 0)
+                    if (shorterAnagram.Length == 0)
                     {
                         solution = new List<string> { currentWord };
                     }
@@ -91,7 +92,7 @@ namespace AnagramChallenge
                 {
                     var shorterAnagram = anagram.SubtractWord(currentWord);
 
-                    if (shorterAnagram.Length() == 0)
+                    if (shorterAnagram.Length == 0)
                     {
                         solution = new List<string> { currentWord };
                     }

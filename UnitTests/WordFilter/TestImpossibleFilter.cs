@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AnagramChallenge;
+using AnagramFinder;
 using AnagramFileReader.WordFilter;
 using NUnit.Framework;
+using AnagramTypes;
 
 namespace UnitTests.WordFilter
 {
@@ -15,7 +16,7 @@ namespace UnitTests.WordFilter
         [TestCase("cat", "john", false)]
         public void TestFilter(string anagramString, string word, bool expected)
         {
-            var anagram = new Anagram(anagramString);
+            var anagram = new SortedAnagram(anagramString);
 
             var filter = new ImpossibleWordFilter(anagram);
 

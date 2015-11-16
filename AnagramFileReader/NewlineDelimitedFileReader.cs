@@ -8,17 +8,19 @@ using AnagramFileReader.WordFilter;
 
 namespace AnagramFileReader
 {
-    public class AnagramFileReader : IAnagramFileReader
+    public class NewlineDelimitedFileReader : IAnagramFileReader
     {
-        private IList<IWordFilter> _wordFilters;
+        private readonly IList<IWordFilter> _wordFilters;
+        private readonly string _path;
 
-        public AnagramFileReader(IList<IWordFilter> wordFilters)
+        public NewlineDelimitedFileReader(string path, IList<IWordFilter> wordFilters)
         {
+            _path = path;
             _wordFilters = wordFilters;
         }
-        public string[] ReadFileIntoMemory(string path)
+        public string[] ReadFileIntoMemory()
         {
-            var lines = File.ReadLines(path);
+            var lines = File.ReadLines(_path);
 
             var result = new Dictionary<string, byte>();
 

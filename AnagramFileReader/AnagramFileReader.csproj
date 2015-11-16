@@ -57,18 +57,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnagramFileReader.cs" />
+    <Compile Include="NewlineDelimitedFileReader.cs" />
     <Compile Include="IAnagramFileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordFilter\ImpossibleWordFilter.cs" />
     <Compile Include="WordFilter\IWordFilter.cs" />
-    <Compile Include="WordFilter\SingleLetterWordFilter.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\AnagramChallenge\AnagramChallenge.csproj">
-      <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
-      <Name>AnagramChallenge</Name>
+    <ProjectReference Include="..\Anagram\AnagramTypes.csproj">
+      <Project>{1c62e156-9975-4826-b3a0-fbf85e4275f5}</Project>
+      <Name>AnagramTypes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

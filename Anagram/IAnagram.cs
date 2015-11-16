@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnagramChallenge
+namespace AnagramTypes
 {
     public interface IAnagram
     {
         bool ContainsWord(string word);
         IAnagram SubtractWord(string word);
-        int Length();
+        int Length { get; }
         string ToString();
     }
 }

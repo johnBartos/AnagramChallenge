@@ -8,7 +8,6 @@ namespace AnagramVerifier.Permutator
 {
     public class WordPermutator : IPermutator
     {
-        
         public IList<string> Permutate(string sentence)
         {
             var results = new List<string>();

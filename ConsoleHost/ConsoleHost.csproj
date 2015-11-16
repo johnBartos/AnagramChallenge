@@ -68,17 +68,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnagramChallenge\AnagramChallenge.csproj">
+    <ProjectReference Include="..\AnagramChallenge\AnagramFinder.csproj">
       <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
-      <Name>AnagramChallenge</Name>
+      <Name>AnagramFinder</Name>
     </ProjectReference>
     <ProjectReference Include="..\AnagramFileReader\AnagramFileReader.csproj">
       <Project>{4205aada-f5c2-4a36-a23e-d744a14457d8}</Project>
       <Name>AnagramFileReader</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AnagramSolver\AnagramSolver.csproj">
+      <Project>{7f523934-79f0-40e9-92d6-54354bdac9a3}</Project>
+      <Name>AnagramSolver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AnagramVerifier\AnagramVerifier.csproj">
       <Project>{884ad65b-378c-4cd9-b9cd-8dea01c5c941}</Project>
       <Name>AnagramVerifier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Anagram\AnagramTypes.csproj">
+      <Project>{1c62e156-9975-4826-b3a0-fbf85e4275f5}</Project>
+      <Name>AnagramTypes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

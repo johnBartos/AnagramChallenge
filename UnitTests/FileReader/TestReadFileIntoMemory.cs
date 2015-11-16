@@ -19,11 +19,11 @@ namespace UnitTests.FileReader
         {
             var testFilePath = Path.Combine(Directory.GetCurrentDirectory() + @"\FileReader\testfile.txt");
                         
-            var reader = new AnagramFileReader.AnagramFileReader(new List<IWordFilter> { new MockWordFilter() });
+            var reader = new AnagramFileReader.NewlineDelimitedFileReader(testFilePath, new List<IWordFilter> { new MockWordFilter() });
 
             var expected = new string[] { "test", "file" };
 
-            var actual = reader.ReadFileIntoMemory(testFilePath);
+            var actual = reader.ReadFileIntoMemory();
 
             Assert.AreEqual(
                 JsonConvert.SerializeObject(expected),

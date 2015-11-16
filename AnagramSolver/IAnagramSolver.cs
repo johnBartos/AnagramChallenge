@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AnagramTypes;
 
-namespace AnagramFileReader
+namespace AnagramSolver
 {
-    public interface IAnagramFileReader
+    public interface IAnagramSolver
     {
-        string[] ReadFileIntoMemory();
+        string Solve(IAnagram anagram, int maxDepth);
     }
 }

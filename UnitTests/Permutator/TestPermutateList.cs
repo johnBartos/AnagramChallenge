@@ -14,7 +14,7 @@ namespace UnitTests.Permutator
         [Test]
         public void TestPermutate()
         {
-            var words = "pastils towy turnout";
+            var words = "a b c";
 
             var permutator = new WordPermutator();
 
