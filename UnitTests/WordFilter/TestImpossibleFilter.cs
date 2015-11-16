@@ -12,15 +12,49 @@ namespace UnitTests.WordFilter
 {
     public class TestImpossibleFilter
     {
-        [TestCase("cat", "at", true)]
-        [TestCase("cat", "john", false)]
-        public void TestFilter(string anagramString, string word, bool expected)
+        [Test]
+        public void TestFilterWordContainedWithinAnagram()
         {
-            var anagram = new SortedAnagram(anagramString);
+            var anagram = new MockAnagram(true);
+
+            var filter = new ImpossibleWordFilter(anagram);
+            
+            Assert.IsTrue(filter.Pass("anything"));
+        }
+
+        [Test]
+        public void TestFilterWordNotContainedWithinAnagram()
+        {
+            var anagram = new MockAnagram(false);
 
             var filter = new ImpossibleWordFilter(anagram);
 
-            Assert.AreEqual(expected, filter.Pass(word));
+            Assert.IsFalse(filter.Pass("anything"));
+        }
+
+        internal class MockAnagram : IAnagram
+        {
+            private readonly bool _shouldContainWord;
+
+            public MockAnagram(bool shouldContainWord)
+            {
+                _shouldContainWord = shouldContainWord;
+            }
+
+            public bool ContainsWord(string word)
+            {
+                return _shouldContainWord;
+            }
+
+            public IAnagram SubtractWord(string word)
+            {
+                throw new NotImplementedException();
+            }
+
+            public int Length
+            {
+                get { throw new NotImplementedException(); }
+            }
         }
     }
 }
