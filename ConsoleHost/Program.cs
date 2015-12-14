@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AnagramFileReader;
-using AnagramFileReader.WordFilter;
-using AnagramFinder;
 using AnagramSolver;
-using AnagramTypes;
-using AnagramVerifier;
-using AnagramVerifier.Permutator;
+using AnagramSolver.AnagramFinder;
+using AnagramSolver.AnagramVerifier;
+using AnagramSolver.AnagramVerifier.Permutator;
+
 
 namespace ConsoleHost
 {
@@ -19,20 +17,14 @@ namespace ConsoleHost
 
         static void Main(string[] args)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory() + @"\wordlist");
-
-            var anagram = new SortedAnagram(AnagramToSolve.Replace(" ", String.Empty));
-            var maxNumWords = AnagramToSolve.Count(x => x == ' ') + 1;
-
-            var fileReader = new NewlineDelimitedFileReader(path, new List<IWordFilter> { new ImpossibleWordFilter(anagram) } );
-            var finder = new RecursiveAnagramFinder();
-            var verifier = new AnagramHashVerifier(new WordPermutator(), SolutionHash);
-
-            var solver = new RecursiveAnagramSolver(fileReader, finder, verifier);
+            var solver = new RecursiveAnagramSolver(
+                new RecursiveAnagramFinder(),
+                new AnagramHashVerifier(new WordPermutator(), SolutionHash));
 
             var startTime = DateTime.Now;
 
-            var solution = solver.Solve(anagram, maxNumWords);
+            var wordList = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory() + @"\wordlist")).ToArray();
+            var solution = solver.Solve(AnagramToSolve, wordList);
 
             Console.WriteLine("The solution is {0}", solution);
             Console.WriteLine("It took {0} to find the solution", DateTime.Now - startTime);

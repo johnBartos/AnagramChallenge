@@ -34,27 +34,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnagramFinder\IAnagramFinder.cs" />
+    <Compile Include="AnagramFinder\RecursiveAnagramFinder.cs" />
+    <Compile Include="AnagramFinder\WordFilter\ImpossibleWordFilter.cs" />
+    <Compile Include="AnagramFinder\WordFilter\IWordFilter.cs" />
+    <Compile Include="Anagram\IAnagram.cs" />
+    <Compile Include="Anagram\SortedAnagram.cs" />
     <Compile Include="RecursiveAnagramSolver.cs" />
     <Compile Include="IAnagramSolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AnagramFileReader\AnagramFileReader.csproj">
-      <Project>{4205aada-f5c2-4a36-a23e-d744a14457d8}</Project>
-      <Name>AnagramFileReader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnagramFinder\AnagramFinder.csproj">
-      <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
-      <Name>AnagramFinder</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnagramTypes\AnagramTypes.csproj">
-      <Project>{1c62e156-9975-4826-b3a0-fbf85e4275f5}</Project>
-      <Name>AnagramTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnagramVerifier\AnagramVerifier.csproj">
-      <Project>{884ad65b-378c-4cd9-b9cd-8dea01c5c941}</Project>
-      <Name>AnagramVerifier</Name>
-    </ProjectReference>
+    <Compile Include="Verifier\AnagramHashVerifier.cs" />
+    <Compile Include="Verifier\IAnagramVerifier.cs" />
+    <Compile Include="Verifier\Permutator\IPermutator.cs" />
+    <Compile Include="Verifier\Permutator\WordPermutator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

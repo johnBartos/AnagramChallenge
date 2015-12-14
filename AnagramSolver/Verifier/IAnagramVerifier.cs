@@ -1,4 +1,4 @@
-﻿namespace AnagramVerifier
+﻿namespace AnagramSolver.AnagramVerifier
 {
     public interface IAnagramVerifier
     {

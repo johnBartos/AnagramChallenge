@@ -1,9 +1,7 @@
-﻿using AnagramTypes;
-
-namespace AnagramSolver
+﻿namespace AnagramSolver
 {
     public interface IAnagramSolver
     {
-        string Solve(IAnagram anagram, int maxDepth);
+        string Solve(string anagram, string[] wordList);
     }
 }

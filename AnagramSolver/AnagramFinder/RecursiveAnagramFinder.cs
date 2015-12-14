@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AnagramTypes;
+using AnagramSolver.Anagram;
+using AnagramSolver.AnagramFinder.WordFilter;
 
-namespace AnagramFinder
+namespace AnagramSolver.AnagramFinder
 {
     public class RecursiveAnagramFinder : IAnagramFinder
     {
@@ -11,7 +12,7 @@ namespace AnagramFinder
 
         public IList<string> Solve(IAnagram anagram, string[] wordList, int index, int maxWords)
         {
-            if(maxWords == 0)
+            if (maxWords == 0)
             {
                 return new List<string>();
             }
@@ -20,6 +21,7 @@ namespace AnagramFinder
             {
                 return _dynamicMap[anagram.ToString()];
             }
+
 
             var solutions = new List<string>();
 

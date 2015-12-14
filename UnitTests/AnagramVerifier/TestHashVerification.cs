@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using AnagramVerifier;
-using AnagramVerifier.Permutator;
+using AnagramSolver.AnagramVerifier;
+using AnagramSolver.AnagramVerifier.Permutator;
 using NUnit.Framework;
 
 namespace UnitTests.AnagramVerifier

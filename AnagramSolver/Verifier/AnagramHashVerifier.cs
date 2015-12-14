@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using AnagramVerifier.Permutator;
+using AnagramSolver.AnagramVerifier.Permutator;
 
-namespace AnagramVerifier
+namespace AnagramSolver.AnagramVerifier
 {
     public class AnagramHashVerifier : IAnagramVerifier
     {
@@ -19,6 +19,12 @@ namespace AnagramVerifier
 
         public bool IsASolution(string anagram, out string solution)
         {
+            if((anagram.Count(x => x == ' ') + 1) > 3)
+            {
+                solution = null;
+                return false;
+            }
+
             var hash = GetHash(anagram);
             var permutations = _wordPermutator.Permutate(anagram);
 

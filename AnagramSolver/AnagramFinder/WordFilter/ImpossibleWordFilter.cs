@@ -1,6 +1,6 @@
-﻿using AnagramTypes;
+﻿using AnagramSolver.Anagram;
 
-namespace AnagramFileReader.WordFilter
+namespace AnagramSolver.AnagramFinder.WordFilter
 {
     public class ImpossibleWordFilter : IWordFilter
     {

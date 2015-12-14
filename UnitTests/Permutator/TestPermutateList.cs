@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using AnagramVerifier.Permutator;
+using AnagramSolver.AnagramVerifier.Permutator;
 using Newtonsoft.Json;
 using NUnit.Framework;
 

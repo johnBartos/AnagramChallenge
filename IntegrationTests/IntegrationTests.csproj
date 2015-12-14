@@ -64,16 +64,6 @@
     <Compile Include="TestSolveAnagram.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnagramFinder\AnagramFinder.csproj">
-      <Project>{7a23b48a-034c-470e-8fec-cf5d27503326}</Project>
-      <Name>AnagramFinder</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnagramTypes\AnagramTypes.csproj">
-      <Project>{1c62e156-9975-4826-b3a0-fbf85e4275f5}</Project>
-      <Name>AnagramTypes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnagramSolver\AnagramSolver.csproj">
+      <Project>{7f523934-79f0-40e9-92d6-54354bdac9a3}</Project>
+      <Name>AnagramSolver</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

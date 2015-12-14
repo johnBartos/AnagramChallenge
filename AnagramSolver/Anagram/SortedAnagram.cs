@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace AnagramTypes
+namespace AnagramSolver.Anagram
 {
     public class SortedAnagram : IAnagram
     {

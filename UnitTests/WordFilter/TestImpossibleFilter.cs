@@ -1,6 +1,7 @@
 ﻿using System;
-using AnagramFileReader.WordFilter;
-using AnagramTypes;
+using AnagramSolver.AnagramFinder;
+using AnagramSolver.AnagramFinder.WordFilter;
+using AnagramSolver.Anagram;
 using NUnit.Framework;
 
 namespace UnitTests.WordFilter

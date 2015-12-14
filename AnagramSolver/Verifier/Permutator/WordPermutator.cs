@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AnagramVerifier.Permutator
+namespace AnagramSolver.AnagramVerifier.Permutator
 {
     public class WordPermutator : IPermutator
     {

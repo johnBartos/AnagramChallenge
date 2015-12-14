@@ -1,4 +1,4 @@
-﻿namespace AnagramTypes
+﻿namespace AnagramSolver.Anagram
 {
     public interface IAnagram
     {

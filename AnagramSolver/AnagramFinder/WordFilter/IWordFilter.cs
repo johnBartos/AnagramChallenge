@@ -1,4 +1,4 @@
-﻿namespace AnagramFileReader.WordFilter
+﻿namespace AnagramSolver.AnagramFinder.WordFilter
 {
     public interface IWordFilter
     {

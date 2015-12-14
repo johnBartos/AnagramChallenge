@@ -1,4 +1,4 @@
-﻿using AnagramTypes;
+﻿using AnagramSolver.Anagram;
 using NUnit.Framework;
 
 namespace UnitTests
