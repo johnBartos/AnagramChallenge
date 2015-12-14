@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AnagramSolver.AnagramVerifier.Permutator
+namespace AnagramSolver.Permutator
 {
     public interface IPermutator
     {

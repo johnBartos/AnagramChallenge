@@ -1,52 +1,32 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using AnagramSolver.AnagramVerifier.Permutator;
 
-namespace AnagramSolver.AnagramVerifier
+namespace AnagramSolver.Verifier
 {
     public class AnagramHashVerifier : IAnagramVerifier
     {
         private readonly string _solutionHash;
-        private readonly IPermutator _wordPermutator;
 
-        public AnagramHashVerifier(IPermutator permutator, string solutionHash)
+        public AnagramHashVerifier( string solutionHash)
         {
-            _wordPermutator = permutator;
             _solutionHash = solutionHash;
         }
 
-        public bool IsASolution(string anagram, out string solution)
+        public bool IsASolution(string anagram)
         {
-            if((anagram.Count(x => x == ' ') + 1) > 3)
-            {
-                solution = null;
-                return false;
-            }
-
-            var hash = GetHash(anagram);
-            var permutations = _wordPermutator.Permutate(anagram);
-
-            solution = permutations.FirstOrDefault(x => String.Equals(GetHash(x), _solutionHash, StringComparison.OrdinalIgnoreCase));
-
-            return solution != null;
+            return String.Equals(_solutionHash, GetHash(anagram), StringComparison.InvariantCultureIgnoreCase);
         }
-
+        
         private string GetHash(string input)
         {
-            using (var md5Hash = MD5.Create())
+            using (var hasher = MD5.Create())
             {
-                var data = md5Hash.ComputeHash(Encoding.ASCII.GetBytes(input));
-
-                var builder = new StringBuilder();
-
-                foreach (var stringByte in data)
-                {
-                    builder.Append(stringByte.ToString("x2"));
-                }
-
-                return builder.ToString();
+                var data = hasher.ComputeHash(Encoding.ASCII.GetBytes(input));
+                return BitConverter.ToString(data).Replace("-", "");
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using AnagramSolver.AnagramVerifier.Permutator;
+using AnagramSolver.Permutator;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -10,7 +10,7 @@ namespace UnitTests.Permutator
         [Test]
         public void TestPermutate()
         {
-            var words = "a b c";
+            const string words = "a b c";
 
             var permutator = new WordPermutator();
 

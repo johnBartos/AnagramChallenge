@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AnagramSolver.AnagramVerifier.Permutator
+namespace AnagramSolver.Permutator
 {
     public class WordPermutator : IPermutator
     {
         public IList<string> Permutate(string sentence)
         {
             var results = new List<string>();
-
             var wordList = sentence.Split(' ');
-
             Permutate(wordList, 0, wordList.Length - 1, results);
 
             return results;

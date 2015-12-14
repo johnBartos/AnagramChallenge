@@ -64,7 +64,6 @@
     <Compile Include="Permutator\TestPermutateList.cs" />
     <Compile Include="SortedAnagram\TestSortedAnagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordFilter\TestImpossibleFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

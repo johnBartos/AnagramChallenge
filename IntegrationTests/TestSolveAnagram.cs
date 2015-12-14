@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using AnagramSolver.AnagramFinder;
 using AnagramSolver.Anagram;
+using AnagramSolver.Finder;
 using NUnit.Framework;
 
 namespace IntegrationTests

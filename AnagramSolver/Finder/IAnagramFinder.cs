@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using AnagramSolver.Anagram;
 
-namespace AnagramSolver.AnagramFinder
+namespace AnagramSolver.Finder
 {
     public interface IAnagramFinder
     {

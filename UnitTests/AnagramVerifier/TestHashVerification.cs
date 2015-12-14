@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using AnagramSolver.AnagramVerifier;
-using AnagramSolver.AnagramVerifier.Permutator;
+using AnagramSolver.Permutator;
+using AnagramSolver.Verifier;
 using NUnit.Framework;
 
 namespace UnitTests.AnagramVerifier
@@ -10,32 +10,11 @@ namespace UnitTests.AnagramVerifier
         [Test]
         public void TestThatHashesAreEqual()
         {
-            var permutations = new List<string> { "john" };
+            var verifier = new AnagramHashVerifier("527bd5b5d689e2c32ae974c6229ff785");
 
-            var mockPermutator = new MockPermutator(permutations);
-
-            var verifier = new AnagramHashVerifier(mockPermutator, "527bd5b5d689e2c32ae974c6229ff785");
-
-            string actualResult;
-            var actual = verifier.IsASolution("john", out actualResult);
+            var actual = verifier.IsASolution("john");
 
             Assert.IsTrue(actual);
-            Assert.AreEqual("john", actualResult);
-        }
-    }
-
-    internal class MockPermutator : IPermutator
-    {
-        private readonly IList<string> _sentencesToReturn;
-
-        public MockPermutator(IList<string> sentencesToReturn)
-        {
-            _sentencesToReturn = sentencesToReturn;
-        }
-
-        public IList<string> Permutate(string sentence)
-        {
-            return _sentencesToReturn;
         }
     }
 }

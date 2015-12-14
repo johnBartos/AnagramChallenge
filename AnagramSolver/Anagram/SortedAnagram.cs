@@ -22,15 +22,7 @@ namespace AnagramSolver.Anagram
             var wordAsChars = word.ToList();
             var anagramCharList = Anagram.ToList();
 
-            foreach (var wordChar in wordAsChars)
-            {
-                if(!anagramCharList.Remove(wordChar))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return wordAsChars.All(wordChar => anagramCharList.Remove(wordChar));
         }
 
         public IAnagram SubtractWord(string word)
@@ -45,7 +37,6 @@ namespace AnagramSolver.Anagram
 
             return new SortedAnagram(String.Join("", anagramCharList));
         }
-
 
         public override string ToString()
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AnagramSolver;
-using AnagramSolver.AnagramFinder;
-using AnagramSolver.AnagramVerifier;
-using AnagramSolver.AnagramVerifier.Permutator;
+using AnagramSolver.Finder;
+using AnagramSolver.Permutator;
+using AnagramSolver.Verifier;
 
 
 namespace ConsoleHost
@@ -19,7 +19,8 @@ namespace ConsoleHost
         {
             var solver = new RecursiveAnagramSolver(
                 new RecursiveAnagramFinder(),
-                new AnagramHashVerifier(new WordPermutator(), SolutionHash));
+                new AnagramHashVerifier(SolutionHash),
+                new WordPermutator());
 
             var startTime = DateTime.Now;
 

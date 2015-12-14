@@ -34,10 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnagramFinder\IAnagramFinder.cs" />
-    <Compile Include="AnagramFinder\RecursiveAnagramFinder.cs" />
-    <Compile Include="AnagramFinder\WordFilter\ImpossibleWordFilter.cs" />
-    <Compile Include="AnagramFinder\WordFilter\IWordFilter.cs" />
+    <Compile Include="Finder\IAnagramFinder.cs" />
+    <Compile Include="Finder\RecursiveAnagramFinder.cs" />
     <Compile Include="Anagram\IAnagram.cs" />
     <Compile Include="Anagram\SortedAnagram.cs" />
     <Compile Include="RecursiveAnagramSolver.cs" />
@@ -45,8 +43,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Verifier\AnagramHashVerifier.cs" />
     <Compile Include="Verifier\IAnagramVerifier.cs" />
-    <Compile Include="Verifier\Permutator\IPermutator.cs" />
-    <Compile Include="Verifier\Permutator\WordPermutator.cs" />
+    <Compile Include="Permutator\IPermutator.cs" />
+    <Compile Include="Permutator\WordPermutator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
