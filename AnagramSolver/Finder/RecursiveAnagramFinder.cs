@@ -10,7 +10,7 @@ namespace AnagramSolver.Finder
     {
         private readonly IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
 
-        public IList<string> Solve(IAnagram anagram, string[] wordList, int index, int maxWords)
+        public IList<string> Solve(IAnagram anagram, string[] wordList, int maxWords)
         {
             if (maxWords == 0)
             {
@@ -37,7 +37,7 @@ namespace AnagramSolver.Finder
                 else
                 {
                     solution = ConcatList(currentWord,
-                        Solve(shorterAnagram, containingWordList.Skip(i + 1).ToArray(), i + 1, maxWords - 1));
+                        Solve(shorterAnagram, containingWordList.Skip(i + 1).ToArray(), maxWords - 1));
                 }
                 solutions.AddRange(solution);
             });

@@ -27,7 +27,7 @@ namespace AnagramSolver
             var maxNumWords = anagram.Count(x => x == ' ') + 1;
             var anagramToSolve = new SortedAnagram(anagram.Replace(" ", String.Empty));
 
-            var result = _finder.Solve(anagramToSolve, wordList, 0, maxNumWords);
+            var result = _finder.Solve(anagramToSolve, wordList, maxNumWords);
 
             var solution = String.Empty;
             Parallel.ForEach(result, (potentialSolution, outerState) =>

@@ -5,6 +5,6 @@ namespace AnagramSolver.Finder
 {
     public interface IAnagramFinder
     {
-        IList<string> Solve(IAnagram anagram, string[] wordList, int index, int maxWords);
+        IList<string> Solve(IAnagram anagram, string[] wordList, int maxWords);
     }
 }
