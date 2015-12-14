@@ -36,8 +36,8 @@ namespace AnagramSolver.Finder
                 }
                 else
                 {
-                    solution = Solve(shorterAnagram, containingWordList.Skip(i + 1).ToArray(), i + 1, maxWords - 1);
-                    solution = ConcatList(currentWord, solution);
+                    solution = ConcatList(currentWord,
+                        Solve(shorterAnagram, containingWordList.Skip(i + 1).ToArray(), i + 1, maxWords - 1));
                 }
                 solutions.AddRange(solution);
             });
@@ -56,11 +56,13 @@ namespace AnagramSolver.Finder
 
             foreach (var s in solution)
             {
-                if (s == null) continue;
-                var sortedWord = String.Concat(s.OrderBy(x => x));
-                if (!newWordDictionary.ContainsKey(sortedWord))
+                if (s != null)
                 {
-                    newWordDictionary.Add(sortedWord, String.Concat(word, " ", s));
+                    var sortedWord = String.Concat(s.OrderBy(x => x));
+                    if (!newWordDictionary.ContainsKey(sortedWord))
+                    {
+                        newWordDictionary.Add(sortedWord, String.Concat(word, " ", s));
+                    }
                 }
             }
 
