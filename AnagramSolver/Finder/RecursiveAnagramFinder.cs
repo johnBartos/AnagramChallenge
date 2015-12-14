@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ namespace AnagramSolver.Finder
 {
     public class RecursiveAnagramFinder : IAnagramFinder
     {
-        private readonly IDictionary<string, IList<string>> _dynamicMap = new Dictionary<string, IList<string>>();
-
+        private readonly ConcurrentDictionary<string, IList<string>> _dynamicMap = new ConcurrentDictionary<string, IList<string>>();
+  
         public IList<string> Solve(IAnagram anagram, string[] wordList, int maxWords)
         {
             if (maxWords == 0)
@@ -23,31 +24,32 @@ namespace AnagramSolver.Finder
             }
 
             var containingWordList = wordList.Where(x => (anagram.ContainsWord(x))).ToArray();
-            var solutions = new List<string>();
+            var solutions = new ConcurrentBag<string>();
+
             Parallel.For(0, containingWordList.Length - 1, i =>
             {
                 var currentWord = containingWordList[i];
                 var shorterAnagram = anagram.SubtractWord(currentWord);
 
-                IList<string> solution;
-                if (shorterAnagram.Length == 0)
-                {
-                    solution = new List<string> {currentWord};
-                }
-                else
-                {
-                    solution = ConcatList(currentWord,
+                var solution = (shorterAnagram.Length == 0) 
+                    ? new List<string> {currentWord} 
+                    : ConcatList(currentWord,
                         Solve(shorterAnagram, containingWordList.Skip(i + 1).ToArray(), maxWords - 1));
+
+                foreach (var s in solution)
+                {
+                    solutions.Add(s);
                 }
-                solutions.AddRange(solution);
             });
 
-            if (solutions.Count > 0 && !_dynamicMap.ContainsKey(anagram.ToString()))
+            var solutionsList = solutions.ToList();
+
+            if (solutions.Count > 0)
             {
-                _dynamicMap.Add(anagram.ToString(), solutions);
+                _dynamicMap.TryAdd(anagram.ToString(), solutionsList);
             }
 
-            return solutions;
+            return solutionsList;
         }
 
         private IList<string> ConcatList(string word, IList<string> solution)
@@ -56,13 +58,10 @@ namespace AnagramSolver.Finder
 
             foreach (var s in solution)
             {
-                if (s != null)
+                var sortedWord = String.Concat(s.OrderBy(x => x));
+                if (!newWordDictionary.ContainsKey(sortedWord))
                 {
-                    var sortedWord = String.Concat(s.OrderBy(x => x));
-                    if (!newWordDictionary.ContainsKey(sortedWord))
-                    {
-                        newWordDictionary.Add(sortedWord, String.Concat(word, " ", s));
-                    }
+                    newWordDictionary.Add(sortedWord, String.Concat(word, " ", s));
                 }
             }
 
